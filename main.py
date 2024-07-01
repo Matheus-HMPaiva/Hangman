@@ -1,65 +1,12 @@
 import random
 
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
 
-word_list = ["ardvark","baboon","camel","dog","car","table"]
+from Jogo_Forca_palavras import word_list
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
+
+from logo import logo
+print(logo)
 
 lives = 6
 
@@ -96,6 +43,6 @@ while not end_of_game:
     if "_" not in display:
         end_of_game = True
         print("You win.")
-
+    from logo import stages
     print(stages[lives])
 
