@@ -1,8 +1,68 @@
 import random
 
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+
 word_list = ["ardvark","baboon","camel","dog","car","table"]
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
+
+lives = 6
+
 print(f"The solution is {chosen_word}")
 
 display = []
@@ -25,10 +85,17 @@ while not end_of_game:
 
         if letter == guess:
            display[position] = letter
+    if guess not in chosen_word:
+        lives -= 1
+        if lives == 0:
+            end_of_game = True
+            print("You lose.")
 
-    print(display)
+    print(f"{' '.join(display)}")
 
     if "_" not in display:
         end_of_game = True
         print("You win.")
+
+    print(stages[lives])
 
